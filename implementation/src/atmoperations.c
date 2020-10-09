@@ -1,4 +1,4 @@
-#include<atmoperations.h>
+#include<atmoperation.h>
 
 
 void atm(char ch, float x)
