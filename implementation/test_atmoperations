@@ -7,7 +7,8 @@
 #define PROJECT_NAME    "ATM-OPERATION"
 
 /* Prototypes for all the test functions */
-void test_atm(void);
+void test_credit(void);
+void test_debit(void);
 
 /* Start of the application test */
 int main() {
@@ -20,8 +21,8 @@ int main() {
   
   
   /* Add your test functions in this format for testing*/
-  CU_atm_test(suite, "add", test_add);
-  CU_add_test(suite, "subtract", test_subtract);
+  CU_atm_test(suite, "credit", test_credit);
+  CU_add_test(suite, "debit", test_debit);
   
 
 
@@ -39,30 +40,18 @@ int main() {
 }
 
 /* Write all the test functions */ 
-void test_add(void) {
-  CU_ASSERT(30 == add(10, 20));
+void test_credit(void) {
+  CU_ASSERT(100 == atm('c',100));
   
   /* Dummy fail*/
-  CU_ASSERT(1500 == add(750, 7500));
+  CU_ASSERT(1500 == atm('c', 150));
 }
 
-void test_subtract(void) {
-  CU_ASSERT(-3 == subtract(0, 3));
+void test_debit(void) {
+  CU_ASSERT(100 == atm('d', 150));
   
   /* Dummy fail*/
-  CU_ASSERT(1 == subtract(1000, 900));
+  CU_ASSERT(50== atm('d', 100));
 }
 
-void test_multiply(void) {
-  CU_ASSERT(0 == multiply(1, 0));
-  
-  /* Dummy fail*/
-  CU_ASSERT(2 == multiply(2, 5));
-}
 
-void test_divide(void) {
-  CU_ASSERT(0 == divide(1, 0));
-  
-  /* Dummy fail*/
-  CU_ASSERT(3 == divide(2, 2));
-}
